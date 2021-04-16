@@ -43,7 +43,7 @@ namespace Storage
             if (_isChanging)
             {
                 _treeNode.Text = nameTextBox.Text;
-                SectionController.ChangeSection(_sectionModel, nameTextBox.Text);
+                SectionController.UpdateSection(_sectionModel, nameTextBox.Text);
             }
             else
             {

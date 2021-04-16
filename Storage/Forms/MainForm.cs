@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -125,7 +126,7 @@ namespace Storage
 
                 if (selectedNode.Tag is StorageModel storageModel)
                     StorageController.DeleteStorage(storageModel);
-                
+
                 if (selectedNode.Tag is SectionModel sectionModel)
                 {
                     if (parentNode.Tag is StorageModel parentStorageModel)
@@ -135,8 +136,7 @@ namespace Storage
                 }
 
                 if (selectedNode.Tag is ProductModel productModel)
-                    ProductController.DeleteProduct((SectionModel) parentNode.Tag, productModel);
-
+                    ProductController.DeleteProduct(parentNode.Tag as SectionModel, productModel);
 
                 selectedNode.Remove();
             }
@@ -144,7 +144,17 @@ namespace Storage
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            StorageController.SerializeStorages();
+            try
+            {
+                StorageController.SerializeStorages();
+            }
+            catch (IOException ioException)
+            {
+                e.Cancel = true;
+                MessageBox.Show(
+                    $"Не получается сериализовать склады!\nПроверьте правильность названия складов!\n" +
+                    $"{ioException.Message}", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -43,7 +43,7 @@ namespace Storage
             if (_isChanging)
             {
                 _treeNode.Text = nameTextBox.Text;
-                StorageController.ChangeStorage(_storageModel, nameTextBox.Text);
+                StorageController.UpdateStorage(_storageModel, nameTextBox.Text);
             }
             else
             {

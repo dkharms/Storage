@@ -28,26 +28,15 @@ namespace Storage.Models
         /// Свойство для хранения остатка товара на складе.
         /// </summary>
         public int Balance { get; set; }
-
-        /// <summary>
-        /// Свойство для хранения ссылки на родительский раздел.
-        /// </summary>
-        public SectionModel ParentSection { get; set; }
-
-        /// <summary>
-        /// Свойство для хранения пути к товару.
-        /// </summary>
-        public string Path { get; set; }
-
+        
         public ProductModel()
         {
         }
 
-        public ProductModel(SectionModel parentSection, string name, string vendorCode, string description,
+        public ProductModel(string name, string vendorCode, string description,
             double price,
             int balance)
         {
-            ParentSection = parentSection;
             Name = name;
             VendorCode = vendorCode;
             Description = description;

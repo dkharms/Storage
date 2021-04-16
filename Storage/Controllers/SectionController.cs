@@ -7,7 +7,7 @@ namespace Storage.Controllers
     {
         public static SectionModel CreateSection(StorageModel storageModel, string name)
         {
-            SectionModel sectionModel = new SectionModel(name, storageModel);
+            SectionModel sectionModel = new SectionModel(name);
             storageModel.SectionList.Add(sectionModel);
 
             return sectionModel;
@@ -15,16 +15,17 @@ namespace Storage.Controllers
 
         public static SectionModel CreateSection(SectionModel sectionModel, string name)
         {
-            SectionModel subSectionModel = new SectionModel(name, sectionModel);
+            SectionModel subSectionModel = new SectionModel(name);
             sectionModel.SectionList.Add(subSectionModel);
 
             return subSectionModel;
         }
 
-        public static void ChangeSection(SectionModel sectionModel, string name) => sectionModel.Name = name;
+        public static void UpdateSection(SectionModel sectionModel, string name) => sectionModel.Name = name;
+
 
         public static void DeleteSection(StorageModel storageModel, SectionModel sectionModel) =>
-            sectionModel.Storage.SectionList.Remove(sectionModel);
+            storageModel.SectionList.Remove(sectionModel);
 
 
         public static void DeleteSection(SectionModel parentSectionModel, SectionModel sectionModel) =>

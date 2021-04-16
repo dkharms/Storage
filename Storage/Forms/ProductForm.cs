@@ -44,13 +44,8 @@ namespace Storage
 
                 if (_isChanging)
                 {
-                    _productModel.Name = name;
-                    _productModel.VendorCode = vendorCode;
-                    _productModel.Description = description;
-                    _productModel.Price = price;
-                    _productModel.Balance = balance;
-
                     _treeNode.Text = name;
+                    ProductController.UpdateProduct(_productModel, name, vendorCode, description, price, balance);
                 }
                 else
                 {
@@ -61,6 +56,8 @@ namespace Storage
                     _treeNode.Nodes[^1].Tag = productModel;
                     _treeNode.Nodes[^1].ImageIndex = 2;
                     _treeNode.Nodes[^1].SelectedImageIndex = 2;
+
+                    ProductController.AssignProductNode(productModel, _treeNode.Nodes[^1]);
                 }
 
                 this.Close();
@@ -88,7 +85,7 @@ namespace Storage
             if (_isChanging)
             {
                 actionButton.Text = "Изменить";
-                
+
                 nameTextBox.Text = _productModel.Name;
                 vendorTextBox.Text = _productModel.VendorCode;
                 descriptionTextBox.Text = _productModel.Description;

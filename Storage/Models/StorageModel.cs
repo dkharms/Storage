@@ -4,7 +4,6 @@ namespace Storage.Models
 {
     public class StorageModel
     {
-        
         /// <summary>
         /// Свойство для хранения уникального идентификатора склада.
         /// </summary>
@@ -14,11 +13,6 @@ namespace Storage.Models
         /// Свойство для хранения названия склада.
         /// </summary>
         public string Name { get; set; }
-
-        /// <summary>
-        /// Свойство для хранения пути к складу.
-        /// </summary>
-        public string Path => this.ToString();
 
         /// <summary>
         /// Свойство для хранения разделов скалада.
