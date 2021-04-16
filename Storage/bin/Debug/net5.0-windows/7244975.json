@@ -1,0 +1,50 @@
+{
+  "$type": "Storage.Models.StorageModel, Storage",
+  "HashCode": "7244975",
+  "Name": "Москва",
+  "Path": "Москва",
+  "SectionList": {
+    "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
+    "$values": [
+      {
+        "$type": "Storage.Models.SectionModel, Storage",
+        "Name": "Продукты",
+        "ParentSection": null,
+        "SectionList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
+          "$values": [
+            {
+              "$type": "Storage.Models.SectionModel, Storage",
+              "Name": "Овощи",
+              "Storage": null,
+              "SectionList": {
+                "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
+                "$values": []
+              },
+              "ProductList": {
+                "$type": "System.Collections.Generic.List`1[[Storage.Models.ProductModel, Storage]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Storage.Models.ProductModel, Storage",
+                    "Name": "Огурцы",
+                    "VendorCode": "4672564",
+                    "Description": "Зеленые огурцы.",
+                    "Price": 50.0,
+                    "Balance": 20,
+                    "Path": "Москва/Продукты/Овощи/Огурцы"
+                  }
+                ]
+              },
+              "Path": "Москва/Продукты/Овощи"
+            }
+          ]
+        },
+        "ProductList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.ProductModel, Storage]], System.Private.CoreLib",
+          "$values": []
+        },
+        "Path": "Москва/Продукты"
+      }
+    ]
+  }
+}

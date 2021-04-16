@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net5.0-windows</TargetFramework>
+        <UseWindowsForms>true</UseWindowsForms>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CsvHelper" Version="26.1.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Forms\ProductForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Forms\StorageForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Forms\SectionForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.Office.Tools.Common.v9.0, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.Office.Tools.Common.v9.0\9.0.0.0__b03f5f7f11d50a3a\Microsoft.Office.Tools.Common.v9.0.dll</HintPath>
+      </Reference>
+      <Reference Include="MIGUIControls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+        <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\MiguiControls\v4.0_1.0.0.0__31bf3856ad364e35\MIGUIControls.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Web.Mobile, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\System.Web.Mobile\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.Mobile.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+        <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\System.Windows.Forms\v4.0_4.0.0.0__b77a5c561934e089\System.Windows.Forms.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>

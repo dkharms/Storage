@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "FrCTuDP6KPSwnSZHhqP/L1oDzChgoKXHom6QAmat/72EyC7mjy1QQ/2zA4h3rHsBjCmr11kgcmXEEqg8xVx0/A==",
+  "success": true,
+  "projectFilePath": "D:\\RiderProjects\\hse\\module1\\Storage\\Storage\\Storage.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\82186\\.nuget\\packages\\csvhelper\\26.1.0\\csvhelper.26.1.0.nupkg.sha512",
+    "C:\\Users\\82186\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

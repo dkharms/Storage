@@ -1,0 +1,10 @@
+{
+  "$type": "Storage.Models.StorageModel, Storage",
+  "HashCode": "49972132",
+  "Name": "Москва",
+  "Path": "Москва",
+  "SectionList": {
+    "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
+    "$values": []
+  }
+}
