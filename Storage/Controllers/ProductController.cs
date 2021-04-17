@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
+using CsvHelper;
 using Storage.Models;
 
 namespace Storage.Controllers
@@ -35,6 +37,18 @@ namespace Storage.Controllers
             productModel.Description = description;
             productModel.Price = price;
             productModel.Balance = balance;
+        }
+
+        public static string GetProductPath(ProductModel productModel) => ProductDictionary[productModel].FullPath;
+
+        public static void ExportCSV(Dictionary<ProductModel, string> productModels, int minimalQuantity)
+        {
+            Dictionary<ProductModel, string> appropriateProductModels = new Dictionary<ProductModel, string>();
+            foreach (KeyValuePair<ProductModel, string> productModel in productModels)
+                if (productModel.Key.Balance <= minimalQuantity)
+                    appropriateProductModels.Add(productModel.Key, productModel.Value);
+            
+            FileController.WriteCSV(productModels);
         }
     }
 }

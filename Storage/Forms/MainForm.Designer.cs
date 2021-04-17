@@ -36,19 +36,20 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.treeView = new System.Windows.Forms.TreeView();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.createStorageStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createStorageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createStorageInstanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createSectionInstanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createProductInstanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.createToolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.sortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.actionToolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.exportCSVToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.actionStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
+            this.productListView = new System.Windows.Forms.ListView();
             this.menuStrip.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +59,7 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.exportToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(978, 33);
+            this.menuStrip.Size = new System.Drawing.Size(1278, 33);
             this.menuStrip.TabIndex = 0;
             // 
             // exportToolStripMenuItem
@@ -78,7 +79,7 @@
             this.treeView.Name = "treeView";
             this.treeView.PathSeparator = "/";
             this.treeView.SelectedImageIndex = 0;
-            this.treeView.Size = new System.Drawing.Size(300, 646);
+            this.treeView.Size = new System.Drawing.Size(400, 646);
             this.treeView.TabIndex = 1;
             this.treeView.AfterCollapse += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterCollapse);
             this.treeView.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterExpand);
@@ -86,17 +87,17 @@
             // 
             // contextMenuStrip
             // 
-            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.createStorageStripMenuItem, this.createStripSeparator, this.changeToolStripMenuItem, this.deleteToolStripMenuItem, this.deleteToolStripSeparator, this.importToolStripMenuItem, this.actionStripSeparator, this.exportCSVToolStripMenu});
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.createStorageToolStripMenuItem, this.createToolStripSeparator, this.sortToolStripMenuItem, this.changeToolStripMenuItem, this.deleteToolStripMenuItem, this.deleteToolStripSeparator, this.importToolStripMenuItem, this.actionToolStripSeparator, this.exportCSVToolStripMenu});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(209, 172);
+            this.contextMenuStrip.Size = new System.Drawing.Size(209, 224);
             this.contextMenuStrip.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.contextMenuStrip_Closed);
             // 
-            // createStorageStripMenuItem
+            // createStorageToolStripMenuItem
             // 
-            this.createStorageStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.createStorageInstanceToolStripMenuItem, this.createSectionInstanceToolStripMenuItem, this.createProductInstanceToolStripMenuItem});
-            this.createStorageStripMenuItem.Name = "createStorageStripMenuItem";
-            this.createStorageStripMenuItem.Size = new System.Drawing.Size(208, 30);
-            this.createStorageStripMenuItem.Text = "Создать...";
+            this.createStorageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.createStorageInstanceToolStripMenuItem, this.createSectionInstanceToolStripMenuItem, this.createProductInstanceToolStripMenuItem});
+            this.createStorageToolStripMenuItem.Name = "createStorageToolStripMenuItem";
+            this.createStorageToolStripMenuItem.Size = new System.Drawing.Size(208, 30);
+            this.createStorageToolStripMenuItem.Text = "Создать...";
             // 
             // createStorageInstanceToolStripMenuItem
             // 
@@ -119,10 +120,16 @@
             this.createProductInstanceToolStripMenuItem.Text = "Товар";
             this.createProductInstanceToolStripMenuItem.Click += new System.EventHandler(this.createProductInstanceToolStripMenuItem_Click);
             // 
-            // createStripSeparator
+            // createToolStripSeparator
             // 
-            this.createStripSeparator.Name = "createStripSeparator";
-            this.createStripSeparator.Size = new System.Drawing.Size(205, 6);
+            this.createToolStripSeparator.Name = "createToolStripSeparator";
+            this.createToolStripSeparator.Size = new System.Drawing.Size(205, 6);
+            // 
+            // sortToolStripMenuItem
+            // 
+            this.sortToolStripMenuItem.Name = "sortToolStripMenuItem";
+            this.sortToolStripMenuItem.Size = new System.Drawing.Size(208, 30);
+            this.sortToolStripMenuItem.Text = "Сортировать";
             // 
             // changeToolStripMenuItem
             // 
@@ -149,6 +156,18 @@
             this.importToolStripMenuItem.Size = new System.Drawing.Size(208, 30);
             this.importToolStripMenuItem.Text = "Импорт склада";
             // 
+            // actionToolStripSeparator
+            // 
+            this.actionToolStripSeparator.Name = "actionToolStripSeparator";
+            this.actionToolStripSeparator.Size = new System.Drawing.Size(205, 6);
+            // 
+            // exportCSVToolStripMenu
+            // 
+            this.exportCSVToolStripMenu.Name = "exportCSVToolStripMenu";
+            this.exportCSVToolStripMenu.Size = new System.Drawing.Size(208, 30);
+            this.exportCSVToolStripMenu.Text = "Экспорт CSV";
+            this.exportCSVToolStripMenu.Click += new System.EventHandler(this.exportCSVToolStripMenu_Click);
+            // 
             // imageList
             // 
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer) (resources.GetObject("imageList.ImageStream")));
@@ -158,31 +177,21 @@
             this.imageList.Images.SetKeyName(2, "product.png");
             this.imageList.Images.SetKeyName(3, "storage.png");
             // 
-            // flowLayoutPanel1
+            // productListView
             // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(306, 33);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(672, 661);
-            this.flowLayoutPanel1.TabIndex = 2;
-            // 
-            // exportCSVToolStripMenu
-            // 
-            this.exportCSVToolStripMenu.Name = "exportCSVToolStripMenu";
-            this.exportCSVToolStripMenu.Size = new System.Drawing.Size(208, 30);
-            this.exportCSVToolStripMenu.Text = "Экспорт CSV";
-            // 
-            // actionStripSeparator
-            // 
-            this.actionStripSeparator.Name = "actionStripSeparator";
-            this.actionStripSeparator.Size = new System.Drawing.Size(205, 6);
+            this.productListView.Anchor = ((System.Windows.Forms.AnchorStyles) ((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.productListView.Location = new System.Drawing.Point(418, 36);
+            this.productListView.Name = "productListView";
+            this.productListView.Size = new System.Drawing.Size(848, 646);
+            this.productListView.TabIndex = 2;
+            this.productListView.UseCompatibleStateImageBehavior = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(978, 694);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(1278, 694);
+            this.Controls.Add(this.productListView);
             this.Controls.Add(this.treeView);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
@@ -197,18 +206,20 @@
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.ToolStripSeparator actionStripSeparator;
+        private System.Windows.Forms.ToolStripMenuItem sortToolStripMenuItem;
+
+        private System.Windows.Forms.ListView productListView;
+
+        private System.Windows.Forms.ToolStripSeparator actionToolStripSeparator;
 
         private System.Windows.Forms.ToolStripMenuItem exportCSVToolStripMenu;
-
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
 
         private System.Windows.Forms.ToolStripSeparator deleteToolStripSeparator;
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
 
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
 
-        private System.Windows.Forms.ToolStripSeparator createStripSeparator;
+        private System.Windows.Forms.ToolStripSeparator createToolStripSeparator;
 
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
 
@@ -217,7 +228,7 @@
         private System.Windows.Forms.ToolStripMenuItem createProductInstanceToolStripMenuItem;
 
         private System.Windows.Forms.ToolStripMenuItem changeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem createStorageStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createStorageToolStripMenuItem;
 
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
 

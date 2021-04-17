@@ -46,7 +46,7 @@ namespace Storage.Models
 
         public override string ToString()
         {
-            return $"/{Name}";
+            return $", {VendorCode}, {Name}, {Balance}";
         }
     }
 }
