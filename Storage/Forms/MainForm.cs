@@ -232,12 +232,12 @@ namespace Storage
             {
                 StorageController.SerializeStorages();
             }
-            catch (IOException ioException)
+            catch (Exception exception)
             {
                 e.Cancel = true;
                 MessageBox.Show(
                     $"Не получается сериализовать склады!\nПроверьте правильность названия складов!\n" +
-                    $"{ioException.Message}", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    $"{exception.Message}", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -254,6 +254,28 @@ namespace Storage
 
             ExportForm exportForm = new ExportForm(productModelsDictionary) {Owner = this};
             exportForm.ShowDialog();
+        }
+
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string json = FileController.Read(openFileDialog.FileName);
+                    StorageController.DeserializeStorage(json);
+                    NodeController.FillTreeView(treeView);
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Не получается импортировать склад!", "Ошибка!", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void sortToolStripMenuItem_Click(object sender, EventArgs e)
+        {
         }
     }
 }

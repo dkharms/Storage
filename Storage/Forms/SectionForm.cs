@@ -49,12 +49,13 @@ namespace Storage
             {
                 SectionModel sectionModel;
                 if (_treeNode.Tag is StorageModel)
-                    sectionModel = SectionController.CreateSection((StorageModel) _treeNode.Tag, nameTextBox.Text);
+                    sectionModel = SectionController.CreateSection((StorageModel) _treeNode.Tag, nameTextBox.Text,
+                        (int) sortIndexNumericUpDown.Value);
                 else
-                    sectionModel = SectionController.CreateSection((SectionModel) _treeNode.Tag, nameTextBox.Text);
+                    sectionModel = SectionController.CreateSection((SectionModel) _treeNode.Tag, nameTextBox.Text,
+                        (int) sortIndexNumericUpDown.Value);
 
-                _treeNode.Nodes.Add(sectionModel.Name);
-                _treeNode.Nodes[^1].Tag = sectionModel;
+                NodeController.CreateNode(_treeNode, sectionModel);
             }
 
             this.Close();

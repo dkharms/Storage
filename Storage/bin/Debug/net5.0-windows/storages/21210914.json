@@ -1,13 +1,13 @@
 {
   "$type": "Storage.Models.StorageModel, Storage",
-  "HashCode": "33675143",
-  "Name": "Щелково",
+  "HashCode": "21210914",
+  "Name": "Москва",
   "SectionList": {
     "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
     "$values": [
       {
         "$type": "Storage.Models.SectionModel, Storage",
-        "Name": "Одежда",
+        "Name": "Продукты",
         "SectionList": {
           "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
           "$values": []
@@ -17,14 +17,15 @@
           "$values": [
             {
               "$type": "Storage.Models.ProductModel, Storage",
-              "Name": "Пиджак",
-              "VendorCode": "32479037",
-              "Description": "Мужской пиджак",
-              "Price": 4499.0,
+              "Name": "Огурцы",
+              "VendorCode": "10",
+              "Description": "Зеленые огурцы",
+              "Price": 10.0,
               "Balance": 10
             }
           ]
-        }
+        },
+        "SortIndex": 2
       }
     ]
   }

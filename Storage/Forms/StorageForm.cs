@@ -48,11 +48,7 @@ namespace Storage
             else
             {
                 StorageModel storageModel = StorageController.CreateStorage(nameTextBox.Text);
-                _treeView.Nodes.Add(storageModel.Name);
-                
-                _treeView.Nodes[^1].Tag = storageModel;
-                _treeView.Nodes[^1].ImageIndex = 3;
-                _treeView.Nodes[^1].SelectedImageIndex = 3;
+                NodeController.CreateNode(_treeView, storageModel);
             }
 
             this.Close();

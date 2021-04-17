@@ -102,21 +102,21 @@
             // createStorageInstanceToolStripMenuItem
             // 
             this.createStorageInstanceToolStripMenuItem.Name = "createStorageInstanceToolStripMenuItem";
-            this.createStorageInstanceToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
+            this.createStorageInstanceToolStripMenuItem.Size = new System.Drawing.Size(152, 30);
             this.createStorageInstanceToolStripMenuItem.Text = "Склад";
             this.createStorageInstanceToolStripMenuItem.Click += new System.EventHandler(this.createStorageInstanceToolStripMenuItem_Click);
             // 
             // createSectionInstanceToolStripMenuItem
             // 
             this.createSectionInstanceToolStripMenuItem.Name = "createSectionInstanceToolStripMenuItem";
-            this.createSectionInstanceToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
+            this.createSectionInstanceToolStripMenuItem.Size = new System.Drawing.Size(152, 30);
             this.createSectionInstanceToolStripMenuItem.Text = "Раздел";
             this.createSectionInstanceToolStripMenuItem.Click += new System.EventHandler(this.createSectionInstanceToolStripMenuItem_Click);
             // 
             // createProductInstanceToolStripMenuItem
             // 
             this.createProductInstanceToolStripMenuItem.Name = "createProductInstanceToolStripMenuItem";
-            this.createProductInstanceToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
+            this.createProductInstanceToolStripMenuItem.Size = new System.Drawing.Size(152, 30);
             this.createProductInstanceToolStripMenuItem.Text = "Товар";
             this.createProductInstanceToolStripMenuItem.Click += new System.EventHandler(this.createProductInstanceToolStripMenuItem_Click);
             // 
@@ -130,6 +130,7 @@
             this.sortToolStripMenuItem.Name = "sortToolStripMenuItem";
             this.sortToolStripMenuItem.Size = new System.Drawing.Size(208, 30);
             this.sortToolStripMenuItem.Text = "Сортировать";
+            this.sortToolStripMenuItem.Click += new System.EventHandler(this.sortToolStripMenuItem_Click);
             // 
             // changeToolStripMenuItem
             // 
@@ -155,6 +156,7 @@
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
             this.importToolStripMenuItem.Size = new System.Drawing.Size(208, 30);
             this.importToolStripMenuItem.Text = "Импорт склада";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // actionToolStripSeparator
             // 

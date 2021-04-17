@@ -51,13 +51,9 @@ namespace Storage
                 {
                     ProductModel productModel = ProductController.CreateProduct((SectionModel) _treeNode.Tag, name,
                         vendorCode, description, price, balance);
-
-                    _treeNode.Nodes.Add(productModel.Name);
-                    _treeNode.Nodes[^1].Tag = productModel;
-                    _treeNode.Nodes[^1].ImageIndex = 2;
-                    _treeNode.Nodes[^1].SelectedImageIndex = 2;
-
-                    ProductController.AssignProductNode(productModel, _treeNode.Nodes[^1]);
+                    
+                    NodeController.CreateNode(_treeNode, productModel);
+                    ProductController.AssignProductToNode(productModel, _treeNode.Nodes[^1]);
                 }
 
                 this.Close();
@@ -85,7 +81,6 @@ namespace Storage
             if (_isChanging)
             {
                 actionButton.Text = "Изменить";
-
                 nameTextBox.Text = _productModel.Name;
                 vendorTextBox.Text = _productModel.VendorCode;
                 descriptionTextBox.Text = _productModel.Description;

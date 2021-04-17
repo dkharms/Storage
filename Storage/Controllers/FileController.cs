@@ -30,7 +30,7 @@ namespace Storage.Controllers
             }
             catch (Exception e)
             {
-                throw new IOException();
+                throw new Exception();
             }
         }
 
@@ -38,15 +38,15 @@ namespace Storage.Controllers
         {
             try
             {
-                return File.ReadAllText($"storages/{path}");
+                return File.ReadAllText(path);
             }
             catch (Exception e)
             {
-                throw new IOException();
+                throw new Exception();
             }
         }
 
-        public static void WriteCSV(string path, Dictionary<ProductModel, string> productModels)
+        public static void WriteCsv(string path, Dictionary<ProductModel, string> productModels)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace Storage.Controllers
             }
             catch (Exception e)
             {
-                throw new IOException();
+                throw new Exception();
             }
         }
     }

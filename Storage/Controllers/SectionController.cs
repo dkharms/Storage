@@ -5,17 +5,17 @@ namespace Storage.Controllers
 {
     public static class SectionController
     {
-        public static SectionModel CreateSection(StorageModel storageModel, string name)
+        public static SectionModel CreateSection(StorageModel storageModel, string name, int sortIndex)
         {
-            SectionModel sectionModel = new SectionModel(name);
+            SectionModel sectionModel = new SectionModel(name, sortIndex);
             storageModel.SectionList.Add(sectionModel);
 
             return sectionModel;
         }
 
-        public static SectionModel CreateSection(SectionModel sectionModel, string name)
+        public static SectionModel CreateSection(SectionModel sectionModel, string name, int sortIndex)
         {
-            SectionModel subSectionModel = new SectionModel(name);
+            SectionModel subSectionModel = new SectionModel(name, sortIndex);
             sectionModel.SectionList.Add(subSectionModel);
 
             return subSectionModel;

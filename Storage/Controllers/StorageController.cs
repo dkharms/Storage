@@ -40,5 +40,11 @@ namespace Storage.Controllers
             foreach (StorageModel storageModel in StorageList)
                 SerializeStorage(storageModel);
         }
+
+        public static void DeserializeStorage(string json)
+        {
+            StorageModel storageModel = JsonConvert.DeserializeObject<StorageModel>(json);
+            StorageList.Add(storageModel);
+        }
     }
 }

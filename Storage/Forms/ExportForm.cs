@@ -26,7 +26,7 @@ namespace Storage
             try
             {
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                    ProductController.ExportCSV(saveFileDialog.FileName, _productModelsDictionary,
+                    ProductController.ExportCsv(saveFileDialog.FileName, _productModelsDictionary,
                         (int) minimalBalanceNumericUpDown.Value);
                 
                 this.Close();

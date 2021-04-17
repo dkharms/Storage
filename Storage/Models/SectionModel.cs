@@ -18,6 +18,11 @@ namespace Storage.Models
         /// Свойство для хранения списка товаров данного классификатора.
         /// </summary>
         public List<ProductModel> ProductList { get; set; }
+        
+        /// <summary>
+        /// Свойство для хранения "кода сортировки".
+        /// </summary>
+        public int SortIndex { get; set; }
 
         public SectionModel()
         {
@@ -25,9 +30,10 @@ namespace Storage.Models
             ProductList = new List<ProductModel>();
         }
 
-        public SectionModel(string name) : this()
+        public SectionModel(string name, int sortIndex) : this()
         {
             Name = name;
+            SortIndex = sortIndex;
         }
 
         public override string ToString()
