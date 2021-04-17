@@ -15,7 +15,7 @@ namespace Storage
 {
     public partial class MainForm : Form
     {
-        private string[] _columnHeaders = {"Название", "Цена", "Остаток на складе", "Путь к товару"};
+        private string[] _columnHeaders = {"Путь к товару", "Название", "Цена", "Остаток на складе"};
 
         public MainForm()
         {
@@ -91,8 +91,8 @@ namespace Storage
                     {
                         string[] productInfo =
                         {
-                            productModel.Name, productModel.Price.ToString(), productModel.Balance.ToString(),
-                            ProductController.GetProductPath(productModel)
+                            ProductController.GetProductPath(productModel), productModel.Name,
+                            productModel.Price.ToString(), productModel.Balance.ToString(),
                         };
                         productListView.Items.Add(new ListViewItem(productInfo) {Tag = productModel});
                     }
@@ -109,10 +109,10 @@ namespace Storage
                 ProductModel productModel = (ProductModel) listViewItem.Tag;
                 if (ProductController.ProductDictionary.ContainsKey(productModel))
                 {
-                    listViewItem.SubItems[0].Text = productModel.Name;
-                    listViewItem.SubItems[1].Text = productModel.Price.ToString();
-                    listViewItem.SubItems[2].Text = productModel.Balance.ToString();
-                    listViewItem.SubItems[3].Text = ProductController.GetProductPath(productModel);
+                    listViewItem.SubItems[0].Text = ProductController.GetProductPath(productModel);
+                    listViewItem.SubItems[1].Text = productModel.Name;
+                    listViewItem.SubItems[2].Text = productModel.Price.ToString();
+                    listViewItem.SubItems[3].Text = productModel.Balance.ToString();
                 }
                 else
                     productListView.Items.Remove(listViewItem);
@@ -245,14 +245,15 @@ namespace Storage
         {
             Dictionary<ProductModel, string> productModelsDictionary = new Dictionary<ProductModel, string>();
             TreeNode selectedNode = treeView.SelectedNode;
-            
+
             List<TreeNode> productNodes =
                 NodeController.GetDeepestNodesByType(selectedNode, typeof(ProductModel), new List<TreeNode>());
-            
+
             foreach (TreeNode productNode in productNodes)
                 productModelsDictionary.Add((ProductModel) productNode.Tag, productNode.FullPath);
-            
-            ProductController.ExportCSV(productModelsDictionary, 20);
+
+            ExportForm exportForm = new ExportForm(productModelsDictionary) {Owner = this};
+            exportForm.ShowDialog();
         }
     }
 }

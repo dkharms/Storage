@@ -21,6 +21,9 @@
       <Compile Update="Forms\SectionForm.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="Forms\ExportForm.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
     <ItemGroup>

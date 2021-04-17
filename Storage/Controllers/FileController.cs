@@ -46,7 +46,7 @@ namespace Storage.Controllers
             }
         }
 
-        public static void WriteCSV(Dictionary<ProductModel, string> productModels)
+        public static void WriteCSV(string path, Dictionary<ProductModel, string> productModels)
         {
             try
             {
@@ -54,7 +54,7 @@ namespace Storage.Controllers
                 foreach (KeyValuePair<ProductModel, string> productModel in productModels)
                     content += productModel.Value + productModel.Key + "\n";
                 
-                File.WriteAllText("products.csv", content, Encoding.UTF8);
+                File.WriteAllText(path, content, Encoding.UTF8);
             }
             catch (Exception e)
             {

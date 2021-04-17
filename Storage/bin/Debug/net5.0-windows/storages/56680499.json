@@ -1,0 +1,60 @@
+{
+  "$type": "Storage.Models.StorageModel, Storage",
+  "HashCode": "56680499",
+  "Name": "Москва",
+  "SectionList": {
+    "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
+    "$values": [
+      {
+        "$type": "Storage.Models.SectionModel, Storage",
+        "Name": "Продукты",
+        "SectionList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
+          "$values": []
+        },
+        "ProductList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.ProductModel, Storage]], System.Private.CoreLib",
+          "$values": [
+            {
+              "$type": "Storage.Models.ProductModel, Storage",
+              "Name": "Огурцы",
+              "VendorCode": "312632158",
+              "Description": "Зеленые огурцы, самые обычные.",
+              "Price": 20.0,
+              "Balance": 10
+            },
+            {
+              "$type": "Storage.Models.ProductModel, Storage",
+              "Name": "Помидоры",
+              "VendorCode": "23718371",
+              "Description": "Красные помидоры, самые обычные.",
+              "Price": 30.0,
+              "Balance": 10
+            }
+          ]
+        }
+      },
+      {
+        "$type": "Storage.Models.SectionModel, Storage",
+        "Name": "Одежда",
+        "SectionList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
+          "$values": []
+        },
+        "ProductList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.ProductModel, Storage]], System.Private.CoreLib",
+          "$values": [
+            {
+              "$type": "Storage.Models.ProductModel, Storage",
+              "Name": "Пиджак",
+              "VendorCode": "2138721893",
+              "Description": "Мужской пиджак",
+              "Price": 3999.0,
+              "Balance": 10
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
