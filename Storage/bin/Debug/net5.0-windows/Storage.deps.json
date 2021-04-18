@@ -8,7 +8,6 @@
     ".NETCoreApp,Version=v5.0": {
       "Storage/1.0.0": {
         "dependencies": {
-          "CsvHelper": "26.1.0",
           "Newtonsoft.Json": "13.0.1",
           "Microsoft.Office.Tools.Common.v9.0": "9.0.0.0",
           "MIGUIControls": "1.0.0.0",
@@ -16,14 +15,6 @@
         },
         "runtime": {
           "Storage.dll": {}
-        }
-      },
-      "CsvHelper/26.1.0": {
-        "runtime": {
-          "lib/net5.0/CsvHelper.dll": {
-            "assemblyVersion": "26.0.0.0",
-            "fileVersion": "26.1.0.0"
-          }
         }
       },
       "Newtonsoft.Json/13.0.1": {
@@ -65,13 +56,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "CsvHelper/26.1.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-bcyX9U6OYwx2P5pSgyiULEpGPVu8m+SMnC4atB9W8Srp+jQbsvAwgZ1PxSNfhM4CULhShYTDz22ABroCaxEpOQ==",
-      "path": "csvhelper/26.1.0",
-      "hashPath": "csvhelper.26.1.0.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",

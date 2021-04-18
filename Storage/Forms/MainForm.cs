@@ -118,7 +118,7 @@ namespace Storage
                 else
                     productListView.Items.Remove(listViewItem);
             }
-            
+
             productListView.EndUpdate();
         }
 
@@ -272,7 +272,8 @@ namespace Storage
             }
             catch (Exception exception)
             {
-                MessageBox.Show($"Не получается импортировать склад!\n{exception.Message}", "Ошибка!", MessageBoxButtons.OK,
+                MessageBox.Show($"Не получается импортировать склад!\n{exception.Message}", "Ошибка!",
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
         }

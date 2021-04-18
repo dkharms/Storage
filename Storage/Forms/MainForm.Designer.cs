@@ -31,8 +31,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.treeView = new System.Windows.Forms.TreeView();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -50,23 +48,8 @@
             this.exportCSVToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.productListView = new System.Windows.Forms.ListView();
-            this.menuStrip.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuStrip
-            // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.exportToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1278, 33);
-            this.menuStrip.TabIndex = 0;
-            // 
-            // exportToolStripMenuItem
-            // 
-            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(91, 29);
-            this.exportToolStripMenuItem.Text = "Экспорт";
             // 
             // treeView
             // 
@@ -75,11 +58,11 @@
             this.treeView.ImageIndex = 0;
             this.treeView.ImageList = this.imageList;
             this.treeView.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.treeView.Location = new System.Drawing.Point(12, 36);
+            this.treeView.Location = new System.Drawing.Point(12, 12);
             this.treeView.Name = "treeView";
             this.treeView.PathSeparator = "/";
             this.treeView.SelectedImageIndex = 0;
-            this.treeView.Size = new System.Drawing.Size(400, 646);
+            this.treeView.Size = new System.Drawing.Size(400, 670);
             this.treeView.TabIndex = 1;
             this.treeView.AfterCollapse += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterCollapse);
             this.treeView.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterExpand);
@@ -89,7 +72,7 @@
             // 
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.createStorageToolStripMenuItem, this.createToolStripSeparator, this.sortToolStripMenuItem, this.changeToolStripMenuItem, this.deleteToolStripMenuItem, this.deleteToolStripSeparator, this.importToolStripMenuItem, this.actionToolStripSeparator, this.exportCSVToolStripMenu});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(209, 224);
+            this.contextMenuStrip.Size = new System.Drawing.Size(209, 202);
             this.contextMenuStrip.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.contextMenuStrip_Closed);
             // 
             // createStorageToolStripMenuItem
@@ -102,21 +85,21 @@
             // createStorageInstanceToolStripMenuItem
             // 
             this.createStorageInstanceToolStripMenuItem.Name = "createStorageInstanceToolStripMenuItem";
-            this.createStorageInstanceToolStripMenuItem.Size = new System.Drawing.Size(152, 30);
+            this.createStorageInstanceToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
             this.createStorageInstanceToolStripMenuItem.Text = "Склад";
             this.createStorageInstanceToolStripMenuItem.Click += new System.EventHandler(this.createStorageInstanceToolStripMenuItem_Click);
             // 
             // createSectionInstanceToolStripMenuItem
             // 
             this.createSectionInstanceToolStripMenuItem.Name = "createSectionInstanceToolStripMenuItem";
-            this.createSectionInstanceToolStripMenuItem.Size = new System.Drawing.Size(152, 30);
+            this.createSectionInstanceToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
             this.createSectionInstanceToolStripMenuItem.Text = "Раздел";
             this.createSectionInstanceToolStripMenuItem.Click += new System.EventHandler(this.createSectionInstanceToolStripMenuItem_Click);
             // 
             // createProductInstanceToolStripMenuItem
             // 
             this.createProductInstanceToolStripMenuItem.Name = "createProductInstanceToolStripMenuItem";
-            this.createProductInstanceToolStripMenuItem.Size = new System.Drawing.Size(152, 30);
+            this.createProductInstanceToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
             this.createProductInstanceToolStripMenuItem.Text = "Товар";
             this.createProductInstanceToolStripMenuItem.Click += new System.EventHandler(this.createProductInstanceToolStripMenuItem_Click);
             // 
@@ -182,9 +165,9 @@
             // productListView
             // 
             this.productListView.Anchor = ((System.Windows.Forms.AnchorStyles) ((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.productListView.Location = new System.Drawing.Point(418, 36);
+            this.productListView.Location = new System.Drawing.Point(418, 12);
             this.productListView.Name = "productListView";
-            this.productListView.Size = new System.Drawing.Size(848, 646);
+            this.productListView.Size = new System.Drawing.Size(848, 670);
             this.productListView.TabIndex = 2;
             this.productListView.UseCompatibleStateImageBehavior = false;
             // 
@@ -195,17 +178,12 @@
             this.ClientSize = new System.Drawing.Size(1278, 694);
             this.Controls.Add(this.productListView);
             this.Controls.Add(this.treeView);
-            this.Controls.Add(this.menuStrip);
-            this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.menuStrip.ResumeLayout(false);
-            this.menuStrip.PerformLayout();
             this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
         }
 
         private System.Windows.Forms.ToolStripMenuItem sortToolStripMenuItem;
@@ -217,7 +195,6 @@
         private System.Windows.Forms.ToolStripMenuItem exportCSVToolStripMenu;
 
         private System.Windows.Forms.ToolStripSeparator deleteToolStripSeparator;
-        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
 
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
 
@@ -239,8 +216,6 @@
         private System.Windows.Forms.TreeView treeView;
 
         private System.Windows.Forms.OpenFileDialog openFileDialog;
-
-        private System.Windows.Forms.MenuStrip menuStrip;
 
         #endregion
     }

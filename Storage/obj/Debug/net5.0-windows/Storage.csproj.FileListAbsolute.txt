@@ -5,7 +5,6 @@ D:\RiderProjects\hse\module1\Storage\Storage\bin\Debug\net5.0-windows\Storage.ru
 D:\RiderProjects\hse\module1\Storage\Storage\bin\Debug\net5.0-windows\Storage.dll
 D:\RiderProjects\hse\module1\Storage\Storage\bin\Debug\net5.0-windows\ref\Storage.dll
 D:\RiderProjects\hse\module1\Storage\Storage\bin\Debug\net5.0-windows\Storage.pdb
-D:\RiderProjects\hse\module1\Storage\Storage\bin\Debug\net5.0-windows\CsvHelper.dll
 D:\RiderProjects\hse\module1\Storage\Storage\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
 D:\RiderProjects\hse\module1\Storage\Storage\obj\Debug\net5.0-windows\Storage.csprojAssemblyReference.cache
 D:\RiderProjects\hse\module1\Storage\Storage\obj\Debug\net5.0-windows\Storage.GeneratedMSBuildEditorConfig.editorconfig

@@ -28,12 +28,13 @@ namespace Storage
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     ProductController.ExportCsv(saveFileDialog.FileName, _productModelsDictionary,
                         (int) minimalBalanceNumericUpDown.Value);
-                
+
                 this.Close();
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Не получается экспортировать CSV!", "Ошибка", MessageBoxButtons.OK,
+                MessageBox.Show($"Не получается экспортировать CSV!\n{exception.Message}", "Ошибка",
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
         }
