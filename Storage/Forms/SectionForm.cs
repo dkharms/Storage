@@ -67,7 +67,8 @@ namespace Storage
 
             if (_isChanging)
             {
-                nameTextBox.Text = (_treeNode.Tag as SectionModel).Name;
+                sortIndexNumericUpDown.Value = ((SectionModel) _treeNode.Tag).SortIndex;
+                nameTextBox.Text = (_treeNode.Tag as SectionModel)?.Name;
                 actionButton.Text = "Изменить";
             }
         }

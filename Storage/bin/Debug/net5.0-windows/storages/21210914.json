@@ -26,6 +26,28 @@
           ]
         },
         "SortIndex": 2
+      },
+      {
+        "$type": "Storage.Models.SectionModel, Storage",
+        "Name": "Одежда",
+        "SectionList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
+          "$values": []
+        },
+        "ProductList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.ProductModel, Storage]], System.Private.CoreLib",
+          "$values": [
+            {
+              "$type": "Storage.Models.ProductModel, Storage",
+              "Name": "Пиджак",
+              "VendorCode": "136721638",
+              "Description": "Мужской пиджак",
+              "Price": 4499.0,
+              "Balance": 10
+            }
+          ]
+        },
+        "SortIndex": 2
       }
     ]
   }

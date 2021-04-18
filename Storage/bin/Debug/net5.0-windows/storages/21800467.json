@@ -4,6 +4,43 @@
   "Name": "Щелково",
   "SectionList": {
     "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
-    "$values": []
+    "$values": [
+      {
+        "$type": "Storage.Models.SectionModel, Storage",
+        "Name": "Продукты",
+        "SectionList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
+          "$values": [
+            {
+              "$type": "Storage.Models.SectionModel, Storage",
+              "Name": "Молочные продукты",
+              "SectionList": {
+                "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
+                "$values": []
+              },
+              "ProductList": {
+                "$type": "System.Collections.Generic.List`1[[Storage.Models.ProductModel, Storage]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Storage.Models.ProductModel, Storage",
+                    "Name": "Молоко",
+                    "VendorCode": "17361728",
+                    "Description": "Молоко \"Простоквашино\"",
+                    "Price": 69.0,
+                    "Balance": 110
+                  }
+                ]
+              },
+              "SortIndex": 1
+            }
+          ]
+        },
+        "ProductList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.ProductModel, Storage]], System.Private.CoreLib",
+          "$values": []
+        },
+        "SortIndex": 0
+      }
+    ]
   }
 }

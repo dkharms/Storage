@@ -67,14 +67,11 @@ namespace Storage.Controllers
             return treeNode.Nodes[^1];
         }
 
-        public static void FillTreeView(TreeView treeView)
+        public static void FillTreeView(TreeView treeView, StorageModel storageModel)
         {
-            foreach (StorageModel storageModel in StorageController.StorageList)
-            {
-                TreeNode storageNode = CreateNode(treeView, storageModel);
+            TreeNode storageNode = CreateNode(treeView, storageModel);
                 foreach (SectionModel sectionModel in storageModel.SectionList)
                     CreateAllSubNodes(storageNode, sectionModel);
-            }
         }
 
         private static void CreateAllSubNodes(TreeNode treeNode, SectionModel sectionModel)

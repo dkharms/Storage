@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Windows.Forms;
 using Newtonsoft.Json;
 using Storage.Models;
 
@@ -41,10 +42,12 @@ namespace Storage.Controllers
                 SerializeStorage(storageModel);
         }
 
-        public static void DeserializeStorage(string json)
+        public static StorageModel DeserializeStorage(string json)
         {
             StorageModel storageModel = JsonConvert.DeserializeObject<StorageModel>(json);
             StorageList.Add(storageModel);
+
+            return storageModel;
         }
     }
 }

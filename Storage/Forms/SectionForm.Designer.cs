@@ -61,7 +61,7 @@ namespace Storage
             this.actionButton.Location = new System.Drawing.Point(62, 232);
             this.actionButton.Name = "actionButton";
             this.actionButton.Size = new System.Drawing.Size(150, 50);
-            this.actionButton.TabIndex = 2;
+            this.actionButton.TabIndex = 3;
             this.actionButton.Text = "Создать";
             this.actionButton.UseVisualStyleBackColor = true;
             this.actionButton.Click += new System.EventHandler(this.actionButton_Click);
@@ -81,7 +81,7 @@ namespace Storage
             this.sortIndexNumericUpDown.Maximum = new decimal(new int[] {100000, 0, 0, 0});
             this.sortIndexNumericUpDown.Name = "sortIndexNumericUpDown";
             this.sortIndexNumericUpDown.Size = new System.Drawing.Size(200, 26);
-            this.sortIndexNumericUpDown.TabIndex = 5;
+            this.sortIndexNumericUpDown.TabIndex = 2;
             // 
             // SectionForm
             // 

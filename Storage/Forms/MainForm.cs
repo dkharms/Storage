@@ -263,13 +263,13 @@ namespace Storage
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string json = FileController.Read(openFileDialog.FileName);
-                    StorageController.DeserializeStorage(json);
-                    NodeController.FillTreeView(treeView);
+                    StorageModel storageModel = StorageController.DeserializeStorage(json);
+                    NodeController.FillTreeView(treeView, storageModel);
                 }
             }
             catch (Exception exception)
             {
-                MessageBox.Show("Не получается импортировать склад!", "Ошибка!", MessageBoxButtons.OK,
+                MessageBox.Show($"Не получается импортировать склад!\n{exception.Message}", "Ошибка!", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
         }
