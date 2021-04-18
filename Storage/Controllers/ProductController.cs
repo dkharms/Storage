@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Storage.Models;
@@ -7,6 +8,7 @@ namespace Storage.Controllers
 {
     public static class ProductController
     {
+        public static Random RandomGenerator = new Random();
         public static Dictionary<ProductModel, TreeNode> ProductDictionary = new Dictionary<ProductModel, TreeNode>();
 
         public static ProductModel CreateProduct(SectionModel parentSection, string name, string vendorCode,
@@ -16,6 +18,17 @@ namespace Storage.Controllers
             parentSection.ProductList.Add(productModel);
 
             return productModel;
+        }
+
+        public static ProductModel CreateRandomProduct(SectionModel parentSection)
+        {
+            string name = RandomGenerator.Next(0, 1000).ToString();
+            string vendorCode = RandomGenerator.Next(0, 1000).ToString();
+            string description = "RANDOM DESCRIPTION";
+            int price = RandomGenerator.Next(0, 1000);
+            int balance = RandomGenerator.Next(0, 1000);
+
+            return CreateProduct(parentSection, name, vendorCode, description, price, balance);
         }
 
         public static void AssignProductToNode(ProductModel productModel, TreeNode treeNode) =>

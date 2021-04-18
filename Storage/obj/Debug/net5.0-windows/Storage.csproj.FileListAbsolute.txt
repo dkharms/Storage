@@ -25,3 +25,4 @@ D:\RiderProjects\hse\module1\Storage\Storage\obj\Debug\net5.0-windows\Storage.Se
 D:\RiderProjects\hse\module1\Storage\Storage\bin\Debug\net5.0-windows\MIGUIControls.dll
 D:\RiderProjects\hse\module1\Storage\Storage\obj\Debug\net5.0-windows\Storage.ProductForm.resources
 D:\RiderProjects\hse\module1\Storage\Storage\obj\Debug\net5.0-windows\Storage.ExportForm.resources
+D:\RiderProjects\hse\module1\Storage\Storage\obj\Debug\net5.0-windows\Storage.RandomForm.resources

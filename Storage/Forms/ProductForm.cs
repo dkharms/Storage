@@ -52,8 +52,8 @@ namespace Storage
                     ProductModel productModel = ProductController.CreateProduct((SectionModel) _treeNode.Tag, name,
                         vendorCode, description, price, balance);
                     
-                    NodeController.CreateNode(_treeNode, productModel);
-                    ProductController.AssignProductToNode(productModel, _treeNode.Nodes[^1]);
+                    TreeNode treeNode = NodeController.CreateNode(_treeNode, productModel);
+                    ProductController.AssignProductToNode(productModel, treeNode);
                 }
 
                 this.Close();

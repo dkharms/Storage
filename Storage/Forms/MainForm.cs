@@ -165,12 +165,6 @@ namespace Storage
             storageForm.ShowDialog();
         }
 
-        private void createSectionInstanceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SectionForm sectionForm = new SectionForm(treeView.SelectedNode, false) {Owner = this};
-            sectionForm.ShowDialog();
-        }
-
         private void createProductInstanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProductForm productForm = new ProductForm(treeView.SelectedNode, false) {Owner = this};
@@ -278,10 +272,21 @@ namespace Storage
             }
         }
 
-        private void sortToolStripMenuItem_Click(object sender, EventArgs e)
+        private void sortToolStripMenuItem_Click(object sender, EventArgs e) =>
+            NodeController.SortNodes(treeView, treeView.SelectedNode);
+
+
+        private void handToolStripMenu_Click(object sender, EventArgs e)
         {
-            TreeNode selectedNode = treeView.SelectedNode;
-            NodeController.SortNodes(treeView, selectedNode);
+            SectionForm sectionForm = new SectionForm(treeView.SelectedNode, false) {Owner = this};
+            sectionForm.ShowDialog();
+        }
+
+        private void generateToolStripMenu_Click(object sender, EventArgs e)
+        {
+            TreeNode selectedTreeNode = treeView.SelectedNode;
+            RandomForm randomForm = new RandomForm(selectedTreeNode, selectedTreeNode.Tag is StorageModel) {Owner = this};
+            randomForm.ShowDialog();
         }
     }
 }

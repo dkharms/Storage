@@ -37,6 +37,8 @@
             this.createStorageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createStorageInstanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createSectionInstanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.handToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.generateToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.createProductInstanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createToolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.sortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,21 +87,35 @@
             // createStorageInstanceToolStripMenuItem
             // 
             this.createStorageInstanceToolStripMenuItem.Name = "createStorageInstanceToolStripMenuItem";
-            this.createStorageInstanceToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
+            this.createStorageInstanceToolStripMenuItem.Size = new System.Drawing.Size(152, 30);
             this.createStorageInstanceToolStripMenuItem.Text = "Склад";
             this.createStorageInstanceToolStripMenuItem.Click += new System.EventHandler(this.createStorageInstanceToolStripMenuItem_Click);
             // 
             // createSectionInstanceToolStripMenuItem
             // 
+            this.createSectionInstanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {this.handToolStripMenu, this.generateToolStripMenu});
             this.createSectionInstanceToolStripMenuItem.Name = "createSectionInstanceToolStripMenuItem";
-            this.createSectionInstanceToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
+            this.createSectionInstanceToolStripMenuItem.Size = new System.Drawing.Size(152, 30);
             this.createSectionInstanceToolStripMenuItem.Text = "Раздел";
-            this.createSectionInstanceToolStripMenuItem.Click += new System.EventHandler(this.createSectionInstanceToolStripMenuItem_Click);
+            // 
+            // handToolStripMenu
+            // 
+            this.handToolStripMenu.Name = "handToolStripMenu";
+            this.handToolStripMenu.Size = new System.Drawing.Size(170, 30);
+            this.handToolStripMenu.Text = "Вручную";
+            this.handToolStripMenu.Click += new System.EventHandler(this.handToolStripMenu_Click);
+            // 
+            // generateToolStripMenu
+            // 
+            this.generateToolStripMenu.Name = "generateToolStripMenu";
+            this.generateToolStripMenu.Size = new System.Drawing.Size(170, 30);
+            this.generateToolStripMenu.Text = "Генерация";
+            this.generateToolStripMenu.Click += new System.EventHandler(this.generateToolStripMenu_Click);
             // 
             // createProductInstanceToolStripMenuItem
             // 
             this.createProductInstanceToolStripMenuItem.Name = "createProductInstanceToolStripMenuItem";
-            this.createProductInstanceToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
+            this.createProductInstanceToolStripMenuItem.Size = new System.Drawing.Size(152, 30);
             this.createProductInstanceToolStripMenuItem.Text = "Товар";
             this.createProductInstanceToolStripMenuItem.Click += new System.EventHandler(this.createProductInstanceToolStripMenuItem_Click);
             // 
@@ -185,6 +201,10 @@
             this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.ToolStripMenuItem generateToolStripMenu;
+
+        private System.Windows.Forms.ToolStripMenuItem handToolStripMenu;
 
         private System.Windows.Forms.ToolStripMenuItem sortToolStripMenuItem;
 
