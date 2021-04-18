@@ -43,7 +43,8 @@ namespace Storage
             if (_isChanging)
             {
                 _treeNode.Text = nameTextBox.Text;
-                SectionController.UpdateSection(_sectionModel, nameTextBox.Text);
+                int sortIndex = (int) sortIndexNumericUpDown.Value;
+                SectionController.UpdateSection(_sectionModel, nameTextBox.Text, sortIndex);
             }
             else
             {

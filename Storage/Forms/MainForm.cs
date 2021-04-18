@@ -104,6 +104,7 @@ namespace Storage
 
         private void UpdateListViewItems()
         {
+            productListView.BeginUpdate();
             foreach (ListViewItem listViewItem in productListView.Items)
             {
                 ProductModel productModel = (ProductModel) listViewItem.Tag;
@@ -117,6 +118,8 @@ namespace Storage
                 else
                     productListView.Items.Remove(listViewItem);
             }
+            
+            productListView.EndUpdate();
         }
 
         private void ChangeActionToolStripsState(bool storageState, bool sectionState, bool productState,
@@ -276,6 +279,8 @@ namespace Storage
 
         private void sortToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            TreeNode selectedNode = treeView.SelectedNode;
+            NodeController.SortNodes(treeView, selectedNode);
         }
     }
 }

@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Storage.Models
 {
-    public class SectionModel
+    public class SectionModel : IComparable<SectionModel>
     {
         /// <summary>
         /// Свойство для хранения имени классификатора.
@@ -18,7 +19,7 @@ namespace Storage.Models
         /// Свойство для хранения списка товаров данного классификатора.
         /// </summary>
         public List<ProductModel> ProductList { get; set; }
-        
+
         /// <summary>
         /// Свойство для хранения "кода сортировки".
         /// </summary>
@@ -35,6 +36,15 @@ namespace Storage.Models
             Name = name;
             SortIndex = sortIndex;
         }
+
+        public int CompareTo(SectionModel other)
+        {
+            if (this.SortIndex == other.SortIndex)
+                return string.Compare(this.Name, other.Name);
+
+            return this.SortIndex - other.SortIndex;
+        }
+
 
         public override string ToString()
         {

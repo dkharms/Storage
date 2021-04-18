@@ -21,7 +21,11 @@ namespace Storage.Controllers
             return subSectionModel;
         }
 
-        public static void UpdateSection(SectionModel sectionModel, string name) => sectionModel.Name = name;
+        public static void UpdateSection(SectionModel sectionModel, string name, int sortIndex)
+        {
+            sectionModel.Name = name;
+            sectionModel.SortIndex = sortIndex;
+        }
 
 
         public static void DeleteSection(StorageModel storageModel, SectionModel sectionModel) =>

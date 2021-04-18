@@ -50,7 +50,7 @@ namespace Storage.Controllers
         {
             try
             {
-                string content = "Путь классификатора, Артикул, Название, Количество на складе\n";
+                string content = "Путь классификатора,Артикул,Название,Количество на складе\n";
                 foreach (KeyValuePair<ProductModel, string> productModel in productModels)
                     content += productModel.Value + productModel.Key + "\n";
                 

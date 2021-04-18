@@ -10,20 +10,78 @@
         "Name": "Продукты",
         "SectionList": {
           "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
-          "$values": []
+          "$values": [
+            {
+              "$type": "Storage.Models.SectionModel, Storage",
+              "Name": "Овощи",
+              "SectionList": {
+                "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
+                "$values": []
+              },
+              "ProductList": {
+                "$type": "System.Collections.Generic.List`1[[Storage.Models.ProductModel, Storage]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Storage.Models.ProductModel, Storage",
+                    "Name": "Огурцы",
+                    "VendorCode": "71389173",
+                    "Description": "Огурцы зеленые",
+                    "Price": 50.0,
+                    "Balance": 200
+                  }
+                ]
+              },
+              "SortIndex": 1
+            },
+            {
+              "$type": "Storage.Models.SectionModel, Storage",
+              "Name": "Молочные продукты",
+              "SectionList": {
+                "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
+                "$values": []
+              },
+              "ProductList": {
+                "$type": "System.Collections.Generic.List`1[[Storage.Models.ProductModel, Storage]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Storage.Models.ProductModel, Storage",
+                    "Name": "Молоко",
+                    "VendorCode": "1237612783",
+                    "Description": "Молоко \"Простоквашино\"",
+                    "Price": 59.0,
+                    "Balance": 100
+                  }
+                ]
+              },
+              "SortIndex": 0
+            },
+            {
+              "$type": "Storage.Models.SectionModel, Storage",
+              "Name": "Фрукты",
+              "SectionList": {
+                "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
+                "$values": []
+              },
+              "ProductList": {
+                "$type": "System.Collections.Generic.List`1[[Storage.Models.ProductModel, Storage]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Storage.Models.ProductModel, Storage",
+                    "Name": "Апельсины",
+                    "VendorCode": "2183672819",
+                    "Description": "Спелые апельсины",
+                    "Price": 100.0,
+                    "Balance": 70
+                  }
+                ]
+              },
+              "SortIndex": 3
+            }
+          ]
         },
         "ProductList": {
           "$type": "System.Collections.Generic.List`1[[Storage.Models.ProductModel, Storage]], System.Private.CoreLib",
-          "$values": [
-            {
-              "$type": "Storage.Models.ProductModel, Storage",
-              "Name": "Огурцы",
-              "VendorCode": "10",
-              "Description": "Зеленые огурцы",
-              "Price": 10.0,
-              "Balance": 10
-            }
-          ]
+          "$values": []
         },
         "SortIndex": 2
       },
@@ -47,7 +105,7 @@
             }
           ]
         },
-        "SortIndex": 2
+        "SortIndex": 4
       }
     ]
   }

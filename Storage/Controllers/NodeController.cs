@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Storage.Models;
@@ -69,9 +70,11 @@ namespace Storage.Controllers
 
         public static void FillTreeView(TreeView treeView, StorageModel storageModel)
         {
+            treeView.BeginUpdate();
             TreeNode storageNode = CreateNode(treeView, storageModel);
-                foreach (SectionModel sectionModel in storageModel.SectionList)
-                    CreateAllSubNodes(storageNode, sectionModel);
+            foreach (SectionModel sectionModel in storageModel.SectionList)
+                CreateAllSubNodes(storageNode, sectionModel);
+            treeView.EndUpdate();
         }
 
         private static void CreateAllSubNodes(TreeNode treeNode, SectionModel sectionModel)
@@ -85,6 +88,30 @@ namespace Storage.Controllers
 
             foreach (SectionModel subSectionModel in sectionModel.SectionList)
                 CreateAllSubNodes(sectionTreeNode, subSectionModel);
+        }
+
+        public static void SortNodes(TreeView treeView, TreeNode parentTreeNode)
+        {
+            TreeNode[] treeNodes = new TreeNode[parentTreeNode.Nodes.Count];
+            parentTreeNode.Nodes.CopyTo(treeNodes, 0);
+            Array.Sort(treeNodes, CompareNodes);
+            
+            treeView.BeginUpdate();
+            parentTreeNode.Nodes.Clear();
+            parentTreeNode.Nodes.AddRange(treeNodes);
+            treeView.EndUpdate();
+        }
+
+        private static int CompareNodes(TreeNode left, TreeNode right)
+        {
+            if (left.Tag is SectionModel leftSectionModel && right.Tag is SectionModel rightSectionModel)
+                return leftSectionModel.CompareTo(rightSectionModel);
+            if (left.Tag is SectionModel && right.Tag is ProductModel)
+                return -1;
+            if (left.Tag is ProductModel && right.Tag is SectionModel)
+                return 1;
+
+            return 0;
         }
     }
 }

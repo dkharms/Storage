@@ -22,7 +22,6 @@ namespace Storage.Controllers
         public static void AssignProductToNode(ProductModel productModel, TreeNode treeNode) =>
             ProductDictionary.Add(productModel, treeNode);
 
-
         public static void DeleteProduct(SectionModel sectionModel, ProductModel productModel)
         {
             sectionModel.ProductList.Remove(productModel);
