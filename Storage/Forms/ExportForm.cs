@@ -6,6 +6,9 @@ using Storage.Models;
 
 namespace Storage
 {
+    /// <summary>
+    /// Форма для экспорта товаров.
+    /// </summary>
     public partial class ExportForm : Form
     {
         private Dictionary<ProductModel, string> _productModelsDictionary;
@@ -21,6 +24,11 @@ namespace Storage
             _productModelsDictionary = productModelsDictionary;
         }
 
+        /// <summary>
+        /// Событие для экспорта в CSV файл товаров, чье кол-во меньше заданного.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exportButton_Click(object sender, EventArgs e)
         {
             try

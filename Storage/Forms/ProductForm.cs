@@ -34,6 +34,12 @@ namespace Storage
         }
 
 
+        /// <summary>
+        /// Кнопка для создания продукта или его изменения.
+        /// Перед этим проверяется, чтобы все обязательные поля были заполнены.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void actionButton_Click(object sender, EventArgs e)
         {
             if (IsEveryTextBoxFilled())
@@ -67,6 +73,10 @@ namespace Storage
                 MessageBox.Show("Проверьте корректность введенных данных!");
         }
 
+        /// <summary>
+        /// Проверка на заполненность всех обязательных полей.
+        /// </summary>
+        /// <returns></returns>
         private bool IsEveryTextBoxFilled()
         {
             if (String.IsNullOrEmpty(nameTextBox.Text))
@@ -79,8 +89,13 @@ namespace Storage
             return true;
         }
 
+        /// <summary>
+        /// Добавление фотографии к данному товару.
+        /// </summary>
+        /// <param name="imagePath"></param>
         private void AssignProductImage(string imagePath)
         {
+
             if (String.IsNullOrEmpty(imagePath))
                 return;
 
@@ -102,6 +117,10 @@ namespace Storage
             }
         }
 
+        /// <summary>
+        /// Подгрузка изображения данного продукта.
+        /// </summary>
+        /// <param name="imagePath"></param>
         private void LoadProductImage(string imagePath)
         {
             if (String.IsNullOrEmpty(imagePath))
@@ -114,11 +133,17 @@ namespace Storage
             }
             catch (Exception e)
             {
-                MessageBox.Show($"Не получается загрузить изображение товара!\n{e.Message}", "Ошибка!", MessageBoxButtons.OK,
+                MessageBox.Show($"Не получается загрузить изображение товара!\n{e.Message}", "Ошибка!",
+                    MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
         }
 
+        /// <summary>
+        /// Подгрузка данных данного продукта.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ProductForm_Load(object sender, EventArgs e)
         {
             if (_isChanging)
@@ -130,9 +155,17 @@ namespace Storage
                 priceTextBox.Text = _productModel.Price.ToString();
                 balanceNumericUpDown.Value = _productModel.Balance;
                 LoadProductImage(_productModel.ImagePath);
+                
+                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
             }
         }
 
+        /// <summary>
+        /// Вызов файлового диалога для выбора фотографии товара.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void imageButton_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)

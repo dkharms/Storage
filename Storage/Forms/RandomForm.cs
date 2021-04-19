@@ -21,6 +21,11 @@ namespace Storage
             _treeNode = treeNode;
         }
 
+        /// <summary>
+        /// Генерация товаров и разделов в количестве, которое указал пользователь.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void generateButton_Click(object sender, EventArgs e)
         {
             Random random = new Random();

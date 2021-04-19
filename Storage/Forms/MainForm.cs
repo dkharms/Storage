@@ -16,6 +16,11 @@ namespace Storage
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Добавление всех колонок в ListView.
+        /// </summary>
+        /// <param name="widthOfColumn"></param>
+        /// <param name="columnsHeaders"></param>
         private void SetupListView(int widthOfColumn, params string[] columnsHeaders)
         {
             productListView.View = View.Details;
@@ -23,6 +28,9 @@ namespace Storage
                 productListView.Columns.Add(columnsHeader, widthOfColumn, HorizontalAlignment.Left);
         }
 
+        /// <summary>
+        /// Создание начальных директорий.
+        /// </summary>
         private void InitializeDirectories()
         {
             try
@@ -44,6 +52,13 @@ namespace Storage
                 true, false, false, false, false, false, false);
         }
 
+        /// <summary>
+        /// Событие, срабатывающее, при нажатии на нод из TreeView.
+        /// Если была нажата левая кнопка мыши, то в ListView выводятся все товары разделов и подразделов.
+        /// Если была нажата правая кнопка мыши, то открывается контекстное меню для взаимодействия с программой.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void treeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -72,6 +87,10 @@ namespace Storage
             }
         }
 
+        /// <summary>
+        /// Наполнение ListView товарами, что были найдены в разделах и подразделах.
+        /// </summary>
+        /// <param name="treeNodes"></param>
         private void GenerateListViewItems(Dictionary<TreeNode, List<TreeNode>> treeNodes)
         {
             productListView.Items.Clear();
@@ -96,6 +115,9 @@ namespace Storage
             productListView.EndUpdate();
         }
 
+        /// <summary>
+        /// Событие, срабатывающее при изменении какого-либо объекта, представленного в TreeView.
+        /// </summary>
         private void UpdateListViewItems()
         {
             productListView.BeginUpdate();
@@ -116,6 +138,16 @@ namespace Storage
             productListView.EndUpdate();
         }
 
+        /// <summary>
+        /// Изменения состояния кнопок для удобства взаимодействия с программой.
+        /// </summary>
+        /// <param name="storageState"></param>
+        /// <param name="sectionState"></param>
+        /// <param name="productState"></param>
+        /// <param name="deleteState"></param>
+        /// <param name="changeState"></param>
+        /// <param name="sortState"></param>
+        /// <param name="exportState"></param>
         private void ChangeActionToolStripsState(bool storageState, bool sectionState, bool productState,
             bool deleteState, bool changeState, bool sortState, bool exportState)
         {
@@ -129,6 +161,11 @@ namespace Storage
             exportCSVToolStripMenu.Enabled = exportState;
         }
 
+        /// <summary>
+        /// Изменение картинки нода, если он представляет объект типа SectionModel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void treeView_AfterExpand(object sender, TreeViewEventArgs e)
         {
             if (e.Node.Tag is SectionModel)
@@ -138,6 +175,11 @@ namespace Storage
             }
         }
 
+        /// <summary>
+        /// Изменение картинки нода, если он представляет объект типа SectionModel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void treeView_AfterCollapse(object sender, TreeViewEventArgs e)
         {
             if (e.Node.Tag is SectionModel)
@@ -147,24 +189,44 @@ namespace Storage
             }
         }
 
+        /// <summary>
+        /// Изменения состояние кнопок для удобства взаимодействия с программой.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void contextMenuStrip_Closed(object sender, ToolStripDropDownClosedEventArgs e)
         {
             ChangeActionToolStripsState(
                 true, false, false, false, false, false, false);
         }
 
+        /// <summary>
+        /// Открытие формы для создания склада.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void createStorageInstanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StorageForm storageForm = new StorageForm(treeView, false) {Owner = this};
             storageForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Открытие формы для создания продукта.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void createProductInstanceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ProductForm productForm = new ProductForm(treeView.SelectedNode, false) {Owner = this};
             productForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Открытие формы для изменения склада, раздела или продукта.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void changeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TreeNode selectedNode = treeView.SelectedNode;
@@ -190,6 +252,11 @@ namespace Storage
             UpdateListViewItems();
         }
 
+        /// <summary>
+        /// Удаление нода, который представляет склад, раздел или продукт.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Удалить выбранный узел?", "Удаление узла", MessageBoxButtons.YesNo,
@@ -212,6 +279,11 @@ namespace Storage
             }
         }
 
+        /// <summary>
+        /// Сериализация складов при закрытии формы.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
@@ -227,6 +299,11 @@ namespace Storage
             }
         }
 
+        /// <summary>
+        /// Получение всех продуктов данного склада и открытие формы.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exportCSVToolStripMenu_Click(object sender, EventArgs e)
         {
             Dictionary<ProductModel, string> productModelsDictionary = new Dictionary<ProductModel, string>();
@@ -242,6 +319,11 @@ namespace Storage
             exportForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Импорт склада в программу и заполнение TreeView его разделами и продуктами.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -262,16 +344,30 @@ namespace Storage
             }
         }
 
+        /// <summary>
+        /// Сортировка данного нода.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void sortToolStripMenuItem_Click(object sender, EventArgs e) =>
             NodeController.SortNodes(treeView, treeView.SelectedNode);
 
-
+        /// <summary>
+        /// Открытие формы для создания раздела вручную.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void handToolStripMenu_Click(object sender, EventArgs e)
         {
             SectionForm sectionForm = new SectionForm(treeView.SelectedNode, false) {Owner = this};
             sectionForm.ShowDialog();
         }
 
+        /// <summary>
+        /// Открытие формы для создание разделов и товаров с помощью рандома.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void generateToolStripMenu_Click(object sender, EventArgs e)
         {
             TreeNode selectedTreeNode = treeView.SelectedNode;

@@ -32,6 +32,11 @@ namespace Storage
             _isChanging = isChanging;
         }
 
+        /// <summary>
+        /// Создание нового раздела или изменение данного.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void actionButton_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(nameTextBox.Text))
