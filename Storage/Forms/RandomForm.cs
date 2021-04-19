@@ -40,6 +40,7 @@ namespace Storage
             {
                 SectionModel sectionModel;
                 TreeNode treeNode;
+                
                 if (_isStorage)
                 { 
                     sectionModel =

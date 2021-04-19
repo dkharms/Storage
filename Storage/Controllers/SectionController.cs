@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Storage.Models;
 
 namespace Storage.Controllers
@@ -7,18 +8,46 @@ namespace Storage.Controllers
     {
         public static SectionModel CreateSection(StorageModel storageModel, string name, int sortIndex)
         {
-            SectionModel sectionModel = new SectionModel(name, sortIndex);
-            storageModel.SectionList.Add(sectionModel);
+            if (CanCreateSection(storageModel, name))
+            {
+                SectionModel sectionModel = new SectionModel(name, sortIndex);
+                storageModel.SectionList.Add(sectionModel);
 
-            return sectionModel;
+                return sectionModel;
+            }
+
+            throw new Exception();
         }
 
         public static SectionModel CreateSection(SectionModel sectionModel, string name, int sortIndex)
         {
-            SectionModel subSectionModel = new SectionModel(name, sortIndex);
-            sectionModel.SectionList.Add(subSectionModel);
+            if (CanCreateSection(sectionModel, name))
+            {
+                SectionModel subSectionModel = new SectionModel(name, sortIndex);
+                sectionModel.SectionList.Add(subSectionModel);
 
-            return subSectionModel;
+                return subSectionModel;
+            }
+
+            throw new Exception();
+        }
+
+        public static bool CanCreateSection(SectionModel sectionModel, string name)
+        {
+            foreach (SectionModel model in sectionModel.SectionList)
+                if (model.Name == name)
+                    return false;
+
+            return true;
+        }
+
+        public static bool CanCreateSection(StorageModel storageModel, string name)
+        {
+            foreach (SectionModel model in storageModel.SectionList)
+                if (model.Name == name)
+                    return false;
+
+            return true;
         }
 
         public static void UpdateSection(SectionModel sectionModel, string name, int sortIndex)

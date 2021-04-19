@@ -1,7 +1,7 @@
 {
   "$type": "Storage.Models.StorageModel, Storage",
   "HashCode": "21210914",
-  "Name": "moscow        ",
+  "Name": "Москва",
   "SectionList": {
     "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
     "$values": [

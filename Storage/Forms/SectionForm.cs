@@ -48,15 +48,25 @@ namespace Storage
             }
             else
             {
-                SectionModel sectionModel;
-                if (_treeNode.Tag is StorageModel)
-                    sectionModel = SectionController.CreateSection((StorageModel) _treeNode.Tag, nameTextBox.Text,
-                        (int) sortIndexNumericUpDown.Value);
-                else
-                    sectionModel = SectionController.CreateSection((SectionModel) _treeNode.Tag, nameTextBox.Text,
-                        (int) sortIndexNumericUpDown.Value);
+                try
+                {
+                    SectionModel sectionModel;
+                    if (_treeNode.Tag is StorageModel)
+                        sectionModel = SectionController.CreateSection((StorageModel) _treeNode.Tag, nameTextBox.Text,
+                            (int) sortIndexNumericUpDown.Value);
+                    else
+                        sectionModel = SectionController.CreateSection((SectionModel) _treeNode.Tag, nameTextBox.Text,
+                            (int) sortIndexNumericUpDown.Value);
 
-                NodeController.CreateNode(_treeNode, sectionModel);
+                    NodeController.CreateNode(_treeNode, sectionModel);
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show("Раздел с таким же именем уже существует!", "Ошибка!", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return;
+                }
             }
 
             this.Close();
