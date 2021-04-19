@@ -86,7 +86,41 @@ namespace Storage.Controllers
             productModel.Balance = balance;
             productModel.ImagePath = imagePath;
         }
-        
+
+        /// <summary>
+        /// Проверка на то, что можно создать товар.
+        /// </summary>
+        /// <param name="productModels"></param>
+        /// <param name="vendorCode"></param>
+        /// <returns></returns>
+        public static bool CanCreateProduct(List<TreeNode> productModels, string vendorCode)
+        {
+            foreach (TreeNode productModel in productModels)
+                if (((ProductModel) productModel.Tag).VendorCode == vendorCode)
+                    return false;
+
+            return true;
+        }
+
+        /// <summary>
+        /// Проверка на то, что можно обновить товар.
+        /// </summary>
+        /// <param name="productModels"></param>
+        /// <param name="productModel"></param>
+        /// <param name="vendorCode"></param>
+        /// <returns></returns>
+        public static bool CanUpdateProduct(List<TreeNode> productModels, ProductModel productModel, string vendorCode)
+        {
+            foreach (TreeNode treeNode in productModels)
+            {
+                ProductModel anotherProductModel = (ProductModel) treeNode.Tag;
+                if (anotherProductModel.VendorCode == vendorCode && anotherProductModel != productModel)
+                    return false;
+            }
+
+            return true;
+        }
+
         /// <summary>
         /// Получение путя продукта.
         /// </summary>
@@ -94,7 +128,7 @@ namespace Storage.Controllers
         /// <returns></returns>
         public static string GetProductPath(ProductModel productModel) => ProductDictionary[productModel].FullPath;
 
-        
+
         /// <summary>
         /// Экспорт продуктов, кол-во которых меньше, чем введеное, в CSV файл.
         /// </summary>

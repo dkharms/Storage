@@ -33,7 +33,7 @@ namespace Storage.Controllers
             return deepestNodes;
         }
 
-        
+
         /// <summary>
         /// Получение нодов определенного типа, у которых нет дочерних нодов.
         /// </summary>
@@ -99,7 +99,7 @@ namespace Storage.Controllers
 
             return treeNode.Nodes[^1];
         }
-        
+
         /// <summary>
         /// Заполнение TreeView путем создания нодов и связкой их с определенными объектами.
         /// </summary>
@@ -133,6 +133,20 @@ namespace Storage.Controllers
         }
 
         /// <summary>
+        /// Получение корня дерева, в смысле самого первого нода.
+        /// </summary>
+        /// <param name="treeNode"></param>
+        /// <returns></returns>
+        public static TreeNode GetTreeRoot(TreeNode treeNode)
+        {
+            TreeNode currentNode = treeNode.Parent;
+            while (currentNode?.Parent != null)
+                currentNode = currentNode.Parent;
+            
+            return currentNode;
+        }
+
+        /// <summary>
         /// Сортировка дочерних нодов родительского нода.
         /// </summary>
         /// <param name="treeView"></param>
@@ -142,7 +156,7 @@ namespace Storage.Controllers
             TreeNode[] treeNodes = new TreeNode[parentTreeNode.Nodes.Count];
             parentTreeNode.Nodes.CopyTo(treeNodes, 0);
             Array.Sort(treeNodes, CompareNodes);
-            
+
             treeView.BeginUpdate();
             parentTreeNode.Nodes.Clear();
             parentTreeNode.Nodes.AddRange(treeNodes);

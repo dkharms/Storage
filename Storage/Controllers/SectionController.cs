@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using Storage.Interfaces;
 using Storage.Models;
 
@@ -17,15 +18,10 @@ namespace Storage.Controllers
         /// <exception cref="Exception"></exception>
         public static SectionModel CreateSection(IStorable iStorable, string name, int sortIndex)
         {
-            if (CanCreateSection(iStorable, name))
-            {
-                SectionModel sectionModel = new SectionModel(name, sortIndex);
-                iStorable.SectionList.Add(sectionModel);
+            SectionModel sectionModel = new SectionModel(name, sortIndex);
+            iStorable.SectionList.Add(sectionModel);
 
-                return sectionModel;
-            }
-
-            throw new Exception();
+            return sectionModel;
         }
 
         /// <summary>
@@ -38,6 +34,22 @@ namespace Storage.Controllers
         {
             foreach (SectionModel model in iStorable.SectionList)
                 if (model.Name == name)
+                    return false;
+
+            return true;
+        }
+
+        /// <summary>
+        /// Проверка на то, что можно обновить раздел.
+        /// </summary>
+        /// <param name="iStorable"></param>
+        /// <param name="sectionModel"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static bool CanUpdateSection(IStorable iStorable, SectionModel sectionModel, string name)
+        {
+            foreach (SectionModel model in iStorable.SectionList)
+                if (model.Name == name && model != sectionModel)
                     return false;
 
             return true;

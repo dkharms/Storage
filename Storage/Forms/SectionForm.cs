@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Storage.Controllers;
+using Storage.Interfaces;
 using Storage.Models;
 
 namespace Storage
@@ -45,33 +46,34 @@ namespace Storage
                 return;
             }
 
+            string name = nameTextBox.Text;
+            int sortIndex = (int) sortIndexNumericUpDown.Value;
+
             if (_isChanging)
             {
-                _treeNode.Text = nameTextBox.Text;
-                int sortIndex = (int) sortIndexNumericUpDown.Value;
-                SectionController.UpdateSection(_sectionModel, nameTextBox.Text, sortIndex);
-            }
-            else
-            {
-                try
-                {
-                    SectionModel sectionModel;
-                    if (_treeNode.Tag is StorageModel)
-                        sectionModel = SectionController.CreateSection((StorageModel) _treeNode.Tag, nameTextBox.Text,
-                            (int) sortIndexNumericUpDown.Value);
-                    else
-                        sectionModel = SectionController.CreateSection((SectionModel) _treeNode.Tag, nameTextBox.Text,
-                            (int) sortIndexNumericUpDown.Value);
-
-                    NodeController.CreateNode(_treeNode, sectionModel);
-                }
-                catch (Exception exception)
+                if (!SectionController.CanUpdateSection((IStorable) _treeNode.Parent.Tag, _sectionModel, name))
                 {
                     MessageBox.Show("Раздел с таким же именем уже существует!", "Ошибка!", MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
 
                     return;
                 }
+
+                SectionController.UpdateSection(_sectionModel, name, sortIndex);
+                _treeNode.Text = nameTextBox.Text;
+            }
+            else
+            {
+                if (!SectionController.CanCreateSection((IStorable) _treeNode.Tag, name))
+                {
+                    MessageBox.Show("Раздел с таким же именем уже существует!", "Ошибка!", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+
+                    return;
+                }
+
+                SectionModel sectionModel = SectionController.CreateSection((IStorable) _treeNode.Tag, name, sortIndex);
+                NodeController.CreateNode(_treeNode, sectionModel);
             }
 
             this.Close();

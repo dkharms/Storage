@@ -23,12 +23,12 @@
                 "$values": [
                   {
                     "$type": "Storage.Models.ProductModel, Storage",
-                    "Name": "Огурцы",
+                    "Name": "Огурцы зелные",
                     "VendorCode": "71389173",
                     "Description": "Огурцы зеленые",
                     "Price": 50.0,
                     "Balance": 150,
-                    "ImagePath": "D:\\ChromeDownloads\\15531840725c93b5489d84e9.43781620.jpg"
+                    "ImagePath": ""
                   }
                 ]
               },
@@ -88,7 +88,7 @@
             {
               "$type": "Storage.Models.ProductModel, Storage",
               "Name": "f",
-              "VendorCode": "f",
+              "VendorCode": "713891734",
               "Description": "f",
               "Price": 10.0,
               "Balance": 10,
@@ -111,15 +111,161 @@
             {
               "$type": "Storage.Models.ProductModel, Storage",
               "Name": "Пиджак",
-              "VendorCode": "136721638",
+              "VendorCode": "12376127834",
               "Description": "Мужской пиджак",
               "Price": 4499.0,
               "Balance": 10,
-              "ImagePath": "D:\\RiderProjects\\hse\\module1\\Storage\\Storage\\bin\\Debug\\net5.0-windows\\images\\shutterstock.jpg"
+              "ImagePath": "D:\\RiderProjects\\hse\\module1\\Storage\\Storage\\bin\\Debug\\net5.0-windows\\images\\gettyimages-1217538342.png"
             }
           ]
         },
         "SortIndex": 4
+      },
+      {
+        "$type": "Storage.Models.SectionModel, Storage",
+        "Name": "231598749",
+        "SectionList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
+          "$values": []
+        },
+        "ProductList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.ProductModel, Storage]], System.Private.CoreLib",
+          "$values": [
+            {
+              "$type": "Storage.Models.ProductModel, Storage",
+              "Name": "1009",
+              "VendorCode": "3938",
+              "Description": "RANDOM DESCRIPTION",
+              "Price": 6119.0,
+              "Balance": 6214,
+              "ImagePath": null
+            },
+            {
+              "$type": "Storage.Models.ProductModel, Storage",
+              "Name": "2111",
+              "VendorCode": "1161",
+              "Description": "RANDOM DESCRIPTION",
+              "Price": 2067.0,
+              "Balance": 603,
+              "ImagePath": null
+            },
+            {
+              "$type": "Storage.Models.ProductModel, Storage",
+              "Name": "2214",
+              "VendorCode": "5487",
+              "Description": "RANDOM DESCRIPTION",
+              "Price": 8025.0,
+              "Balance": 5441,
+              "ImagePath": null
+            }
+          ]
+        },
+        "SortIndex": 0
+      },
+      {
+        "$type": "Storage.Models.SectionModel, Storage",
+        "Name": "1911725017",
+        "SectionList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
+          "$values": []
+        },
+        "ProductList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.ProductModel, Storage]], System.Private.CoreLib",
+          "$values": [
+            {
+              "$type": "Storage.Models.ProductModel, Storage",
+              "Name": "7685",
+              "VendorCode": "9918",
+              "Description": "RANDOM DESCRIPTION",
+              "Price": 9023.0,
+              "Balance": 156,
+              "ImagePath": null
+            },
+            {
+              "$type": "Storage.Models.ProductModel, Storage",
+              "Name": "4109",
+              "VendorCode": "7092",
+              "Description": "RANDOM DESCRIPTION",
+              "Price": 4405.0,
+              "Balance": 1263,
+              "ImagePath": null
+            },
+            {
+              "$type": "Storage.Models.ProductModel, Storage",
+              "Name": "3647",
+              "VendorCode": "5156",
+              "Description": "RANDOM DESCRIPTION",
+              "Price": 3588.0,
+              "Balance": 942,
+              "ImagePath": null
+            }
+          ]
+        },
+        "SortIndex": 0
+      },
+      {
+        "$type": "Storage.Models.SectionModel, Storage",
+        "Name": "216926096",
+        "SectionList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
+          "$values": []
+        },
+        "ProductList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.ProductModel, Storage]], System.Private.CoreLib",
+          "$values": [
+            {
+              "$type": "Storage.Models.ProductModel, Storage",
+              "Name": "1852",
+              "VendorCode": "1448",
+              "Description": "RANDOM DESCRIPTION",
+              "Price": 9923.0,
+              "Balance": 5343,
+              "ImagePath": null
+            },
+            {
+              "$type": "Storage.Models.ProductModel, Storage",
+              "Name": "6044",
+              "VendorCode": "7521",
+              "Description": "RANDOM DESCRIPTION",
+              "Price": 2690.0,
+              "Balance": 8160,
+              "ImagePath": null
+            },
+            {
+              "$type": "Storage.Models.ProductModel, Storage",
+              "Name": "1074",
+              "VendorCode": "110",
+              "Description": "RANDOM DESCRIPTION",
+              "Price": 8450.0,
+              "Balance": 8166,
+              "ImagePath": null
+            }
+          ]
+        },
+        "SortIndex": 0
+      },
+      {
+        "$type": "Storage.Models.SectionModel, Storage",
+        "Name": "Фрукты",
+        "SectionList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.SectionModel, Storage]], System.Private.CoreLib",
+          "$values": []
+        },
+        "ProductList": {
+          "$type": "System.Collections.Generic.List`1[[Storage.Models.ProductModel, Storage]], System.Private.CoreLib",
+          "$values": [
+            {
+              "$type": "Storage.Models.ProductModel, Storage",
+              "Name": "Оовщи",
+              "VendorCode": "цшйгушщйцгу",
+              "Description": "аофвшаоывш",
+              "Price": 10.0,
+              "Balance": 10,
+              "ImagePath": ""
+            }
+          ]
+        },
+        "SortIndex": 0
       }
     ]
   }

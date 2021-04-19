@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using Storage.Controllers;
@@ -51,14 +52,32 @@ namespace Storage
                 int balance = (int) balanceNumericUpDown.Value;
                 string imagePath = _imagePath ?? "";
 
+                TreeNode rootNode = NodeController.GetTreeRoot(_treeNode);
+                List<TreeNode> productNodes =
+                    NodeController.GetDeepestNodesByType(rootNode, typeof(ProductModel), new List<TreeNode>());
+                
                 if (_isChanging)
                 {
+                    if (!ProductController.CanUpdateProduct(productNodes, _productModel, vendorCode))
+                    {
+                        MessageBox.Show("Товар с таким же артикулом уже существует!", "Ошибка!", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        return;
+                    }
+                    
                     _treeNode.Text = name;
                     ProductController.UpdateProduct(_productModel, name, vendorCode, description, price, balance,
                         imagePath);
                 }
                 else
                 {
+                    if (!ProductController.CanCreateProduct(productNodes, vendorCode))
+                    {
+                        MessageBox.Show("Товар с таким же артикулом уже существует!", "Ошибка!", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        return;
+                    }
+                    
                     ProductModel productModel = ProductController.CreateProduct((SectionModel) _treeNode.Tag, name,
                         vendorCode, description, price, balance, imagePath);
                     _productModel = productModel;
@@ -95,7 +114,6 @@ namespace Storage
         /// <param name="imagePath"></param>
         private void AssignProductImage(string imagePath)
         {
-
             if (String.IsNullOrEmpty(imagePath))
                 return;
 
@@ -155,9 +173,8 @@ namespace Storage
                 priceTextBox.Text = _productModel.Price.ToString();
                 balanceNumericUpDown.Value = _productModel.Balance;
                 LoadProductImage(_productModel.ImagePath);
-                
-                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
+                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             }
         }
 
