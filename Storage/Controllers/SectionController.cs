@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using Storage.Interfaces;
 using Storage.Models;
 
 namespace Storage.Controllers
 {
     public static class SectionController
     {
-        public static SectionModel CreateSection(StorageModel storageModel, string name, int sortIndex)
+        public static SectionModel CreateSection(IStorable iStorable, string name, int sortIndex)
         {
-            if (CanCreateSection(storageModel, name))
+            if (CanCreateSection(iStorable, name))
             {
                 SectionModel sectionModel = new SectionModel(name, sortIndex);
-                storageModel.SectionList.Add(sectionModel);
+                iStorable.SectionList.Add(sectionModel);
 
                 return sectionModel;
             }
@@ -19,31 +20,9 @@ namespace Storage.Controllers
             throw new Exception();
         }
 
-        public static SectionModel CreateSection(SectionModel sectionModel, string name, int sortIndex)
+        public static bool CanCreateSection(IStorable iStorable, string name)
         {
-            if (CanCreateSection(sectionModel, name))
-            {
-                SectionModel subSectionModel = new SectionModel(name, sortIndex);
-                sectionModel.SectionList.Add(subSectionModel);
-
-                return subSectionModel;
-            }
-
-            throw new Exception();
-        }
-
-        public static bool CanCreateSection(SectionModel sectionModel, string name)
-        {
-            foreach (SectionModel model in sectionModel.SectionList)
-                if (model.Name == name)
-                    return false;
-
-            return true;
-        }
-
-        public static bool CanCreateSection(StorageModel storageModel, string name)
-        {
-            foreach (SectionModel model in storageModel.SectionList)
+            foreach (SectionModel model in iStorable.SectionList)
                 if (model.Name == name)
                     return false;
 
@@ -57,11 +36,7 @@ namespace Storage.Controllers
         }
 
 
-        public static void DeleteSection(StorageModel storageModel, SectionModel sectionModel) =>
-            storageModel.SectionList.Remove(sectionModel);
-
-
-        public static void DeleteSection(SectionModel parentSectionModel, SectionModel sectionModel) =>
-            parentSectionModel.SectionList.Remove(sectionModel);
+        public static void DeleteSection(IStorable iStorable, SectionModel sectionModel) =>
+            iStorable.SectionList.Remove(sectionModel);
     }
 }

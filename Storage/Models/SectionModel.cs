@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using Storage.Interfaces;
 
 namespace Storage.Models
 {
-    public class SectionModel : IComparable<SectionModel>
+    public class SectionModel : IComparable<SectionModel>, IStorable
     {
         /// <summary>
         /// Свойство для хранения имени классификатора.

@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Storage.Interfaces;
 
 namespace Storage.Models
 {
-    public class StorageModel
+    public class StorageModel : IStorable
     {
         /// <summary>
         /// Свойство для хранения уникального идентификатора склада.

@@ -12,9 +12,9 @@ namespace Storage.Controllers
         public static Dictionary<ProductModel, TreeNode> ProductDictionary = new Dictionary<ProductModel, TreeNode>();
 
         public static ProductModel CreateProduct(SectionModel parentSection, string name, string vendorCode,
-            string description, double price, int balance)
+            string description, double price, int balance, string imagePath)
         {
-            ProductModel productModel = new ProductModel(name, vendorCode, description, price, balance);
+            ProductModel productModel = new ProductModel(name, vendorCode, description, price, balance, imagePath);
             parentSection.ProductList.Add(productModel);
 
             return productModel;
@@ -28,7 +28,7 @@ namespace Storage.Controllers
             int price = RandomGenerator.Next(0, 1000);
             int balance = RandomGenerator.Next(0, 1000);
 
-            return CreateProduct(parentSection, name, vendorCode, description, price, balance);
+            return CreateProduct(parentSection, name, vendorCode, description, price, balance, null);
         }
 
         public static void AssignProductToNode(ProductModel productModel, TreeNode treeNode) =>
@@ -41,13 +41,14 @@ namespace Storage.Controllers
         }
 
         public static void UpdateProduct(ProductModel productModel, string name, string vendorCode, string description,
-            double price, int balance)
+            double price, int balance, string imagePath)
         {
             productModel.Name = name;
             productModel.VendorCode = vendorCode;
             productModel.Description = description;
             productModel.Price = price;
             productModel.Balance = balance;
+            productModel.ImagePath = imagePath;
         }
 
         public static string GetProductPath(ProductModel productModel) => ProductDictionary[productModel].FullPath;

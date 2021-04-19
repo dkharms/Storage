@@ -27,7 +27,8 @@
                     "VendorCode": "71389173",
                     "Description": "Огурцы зеленые",
                     "Price": 50.0,
-                    "Balance": 150
+                    "Balance": 150,
+                    "ImagePath": "D:\\ChromeDownloads\\15531840725c93b5489d84e9.43781620.jpg"
                   }
                 ]
               },
@@ -49,7 +50,8 @@
                     "VendorCode": "1237612783",
                     "Description": "Молоко \"Простоквашино\"",
                     "Price": 59.0,
-                    "Balance": 100
+                    "Balance": 100,
+                    "ImagePath": null
                   }
                 ]
               },
@@ -71,7 +73,8 @@
                     "VendorCode": "2183672819",
                     "Description": "Спелые апельсины",
                     "Price": 100.0,
-                    "Balance": 70
+                    "Balance": 70,
+                    "ImagePath": null
                   }
                 ]
               },
@@ -81,7 +84,17 @@
         },
         "ProductList": {
           "$type": "System.Collections.Generic.List`1[[Storage.Models.ProductModel, Storage]], System.Private.CoreLib",
-          "$values": []
+          "$values": [
+            {
+              "$type": "Storage.Models.ProductModel, Storage",
+              "Name": "f",
+              "VendorCode": "f",
+              "Description": "f",
+              "Price": 10.0,
+              "Balance": 10,
+              "ImagePath": "D:\\RiderProjects\\hse\\module1\\Storage\\Storage\\bin\\Debug\\net5.0-windows\\images\\shutterstock.jpg"
+            }
+          ]
         },
         "SortIndex": 2
       },
@@ -101,7 +114,8 @@
               "VendorCode": "136721638",
               "Description": "Мужской пиджак",
               "Price": 4499.0,
-              "Balance": 10
+              "Balance": 10,
+              "ImagePath": "D:\\RiderProjects\\hse\\module1\\Storage\\Storage\\bin\\Debug\\net5.0-windows\\images\\shutterstock.jpg"
             }
           ]
         },

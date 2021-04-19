@@ -42,7 +42,11 @@ namespace Storage
             this.balanceLabel = new System.Windows.Forms.Label();
             this.balanceNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.actionButton = new System.Windows.Forms.Button();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.imageButton = new System.Windows.Forms.Button();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize) (this.balanceNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -130,7 +134,7 @@ namespace Storage
             // actionButton
             // 
             this.actionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.actionButton.Location = new System.Drawing.Point(202, 290);
+            this.actionButton.Location = new System.Drawing.Point(203, 632);
             this.actionButton.Name = "actionButton";
             this.actionButton.Size = new System.Drawing.Size(150, 50);
             this.actionButton.TabIndex = 10;
@@ -138,11 +142,32 @@ namespace Storage
             this.actionButton.UseVisualStyleBackColor = true;
             this.actionButton.Click += new System.EventHandler(this.actionButton_Click);
             // 
+            // pictureBox
+            // 
+            this.pictureBox.Location = new System.Drawing.Point(149, 250);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(250, 250);
+            this.pictureBox.TabIndex = 11;
+            this.pictureBox.TabStop = false;
+            // 
+            // imageButton
+            // 
+            this.imageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
+            this.imageButton.Location = new System.Drawing.Point(203, 506);
+            this.imageButton.Name = "imageButton";
+            this.imageButton.Size = new System.Drawing.Size(150, 50);
+            this.imageButton.TabIndex = 12;
+            this.imageButton.Text = "Выбрать изображение";
+            this.imageButton.UseVisualStyleBackColor = true;
+            this.imageButton.Click += new System.EventHandler(this.imageButton_Click);
+            // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(563, 354);
+            this.ClientSize = new System.Drawing.Size(563, 694);
+            this.Controls.Add(this.imageButton);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.actionButton);
             this.Controls.Add(this.balanceNumericUpDown);
             this.Controls.Add(this.balanceLabel);
@@ -158,9 +183,16 @@ namespace Storage
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.ProductForm_Load);
             ((System.ComponentModel.ISupportInitialize) (this.balanceNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+
+        private System.Windows.Forms.Button imageButton;
+
+        private System.Windows.Forms.PictureBox pictureBox;
 
         private System.Windows.Forms.NumericUpDown balanceNumericUpDown;
         private System.Windows.Forms.Button actionButton;

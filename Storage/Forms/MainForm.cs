@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Storage.Controllers;
+using Storage.Interfaces;
 using Storage.Models;
 
 namespace Storage
@@ -201,12 +202,7 @@ namespace Storage
                     StorageController.DeleteStorage(storageModel);
 
                 if (selectedNode.Tag is SectionModel sectionModel)
-                {
-                    if (parentNode.Tag is StorageModel parentStorageModel)
-                        SectionController.DeleteSection(parentStorageModel, sectionModel);
-                    if (parentNode.Tag is SectionModel parentSectionModel)
-                        SectionController.DeleteSection(parentSectionModel, sectionModel);
-                }
+                    SectionController.DeleteSection((IStorable) parentNode.Tag, sectionModel);
 
                 if (selectedNode.Tag is ProductModel productModel)
                     ProductController.DeleteProduct(parentNode.Tag as SectionModel, productModel);
@@ -250,7 +246,7 @@ namespace Storage
         {
             try
             {
-                openFileDialog.InitialDirectory = "storages";
+                openFileDialog.InitialDirectory = FileController.StorageDirectory.FullName;
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string json = FileController.Read(openFileDialog.FileName);
@@ -279,7 +275,7 @@ namespace Storage
         private void generateToolStripMenu_Click(object sender, EventArgs e)
         {
             TreeNode selectedTreeNode = treeView.SelectedNode;
-            RandomForm randomForm = new RandomForm(selectedTreeNode, selectedTreeNode.Tag is StorageModel) {Owner = this};
+            RandomForm randomForm = new RandomForm(selectedTreeNode) {Owner = this};
             randomForm.ShowDialog();
         }
     }

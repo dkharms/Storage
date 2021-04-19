@@ -29,19 +29,22 @@ namespace Storage.Models
         /// </summary>
         public int Balance { get; set; }
         
+        public string ImagePath { get; set; }
+        
         public ProductModel()
         {
         }
 
         public ProductModel(string name, string vendorCode, string description,
             double price,
-            int balance)
+            int balance, string imagePath)
         {
             Name = name;
             VendorCode = vendorCode;
             Description = description;
             Price = price;
             Balance = balance;
+            ImagePath = imagePath;
         }
 
         public override string ToString()

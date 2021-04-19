@@ -8,6 +8,12 @@ namespace Storage.Controllers
 {
     public static class NodeController
     {
+        /// <summary>
+        /// Получение нодов, у которых нет 
+        /// </summary>
+        /// <param name="treeNode"></param>
+        /// <param name="deepestNodes"></param>
+        /// <returns></returns>
         public static Dictionary<TreeNode, List<TreeNode>> GetDeepestNodes(TreeNode treeNode,
             Dictionary<TreeNode, List<TreeNode>> deepestNodes)
         {
